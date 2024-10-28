@@ -78,7 +78,12 @@ const TextInsertion = (props) => {
         size="large"
         label="Enter text to generate and insert as a Latex-rendered equation."
       >
-        <Textarea size="large" value={text} onChange={handleTextChange} />
+        <Textarea
+          size="large"
+          value={text}
+          onChange={handleTextChange}
+          placeholder="Integrate from 0 to 1 of x^(n+1) dx"
+        />
       </Field>
 
       <Button appearance="primary" size="large" onClick={handleTextInsertion}>
