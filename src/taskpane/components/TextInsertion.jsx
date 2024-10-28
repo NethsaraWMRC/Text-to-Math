@@ -33,11 +33,14 @@ const model = genAI.getGenerativeModel({ model: "tunedModels/texttolatex-v4nyjr2
 
 const TextInsertion = (props) => {
   const [text, setText] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
   const styles = useStyles();
 
   const handleTextInsertion = async () => {
     try {
       // Generate LaTeX code using Google Generative AI
+      setText("");
+      setIsLoading(true);
       const result = await model.generateContent(text);
       const generatedText = result.response.text() || "";
 
@@ -52,8 +55,7 @@ const TextInsertion = (props) => {
     } catch (error) {
       console.error("Error generating LaTeX image:", error);
     }
-
-    setText("");
+    setIsLoading(false);
   };
 
   const handleTextChange = (event) => {
@@ -71,15 +73,19 @@ const TextInsertion = (props) => {
 
   return (
     <div className={styles.textPromptAndInsertion}>
-      <Field className={styles.textAreaField} size="large" label="Enter text to be converted to LaTeX and rendered.">
+      <Field
+        className={styles.textAreaField}
+        size="large"
+        label="Enter text to generate and insert as a Latex-rendered equation."
+      >
         <Textarea size="large" value={text} onChange={handleTextChange} />
       </Field>
 
       <Button appearance="primary" size="large" onClick={handleTextInsertion}>
         Insert Equation
       </Button>
-      <div id="latex-output" className={styles.textAreaField} style={{ marginTop: "20px" }}>
-        {/* Rendered LaTeX will appear here */}
+      <div id="loading" className={styles.textAreaField} style={{ marginTop: "20px" }}>
+        {isLoading && <div> Loading...</div>}
       </div>
     </div>
   );

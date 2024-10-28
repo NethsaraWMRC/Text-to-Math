@@ -10,13 +10,22 @@ export async function insertText(imageUrl) {
 
     Word.run(async (context) => {
       try {
-        const body = context.document.body;
+        // Get the current cursor selection range
+        const range = context.document.getSelection();
 
-        // Insert the image from the URL
-        const paragraph = body.insertParagraph("", Word.InsertLocation.end);
-        paragraph.insertInlinePictureFromBase64(await fetchImageAsBase64(imageUrl), Word.InsertLocation.end);
+        // Insert the image at the cursor location
+        const picture = range.insertInlinePictureFromBase64(
+          await fetchImageAsBase64(imageUrl),
+          Word.InsertLocation.replace
+        );
+
+        // Set image layout properties as needed
+        picture.wrap = Word.WrapType.none; // Set to appear in front of text
+        picture.layoutInCell = false;
+        picture.lockAspectRatio = true;
+
         await context.sync();
-        console.log("Image inserted successfully.");
+        console.log("Image inserted at the cursor location.");
       } catch (error) {
         console.log("Error: " + error);
       }
