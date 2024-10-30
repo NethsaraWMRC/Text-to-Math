@@ -1,4 +1,4 @@
-# Word Add-In: Math Expression Generator
+# Word Add-In: Math Expression Generator(Qmath)
 
 This add-in allows you to easily generate LaTeX-style math expressions from natural language input directly within Word. Follow the instructions below to use the add-in on Word 365 or to run it locally.
 
@@ -18,7 +18,7 @@ This add-in allows you to easily generate LaTeX-style math expressions from natu
 3. Click the **Add-ins** icon, select **More Add-ins**, go to **My Add-ins**, and click **Upload My Add-in**.
 4. Browse and upload the **`deployed_manifest.xml`** file found in the project folder.
 5. **Reload the Word document** (refresh or close and reopen).
-6. A new add-in called **NaturaTex** should appear in Word. Click on it to open the add-in.
+6. A new add-in called **Qmath** should appear in Word. Click on it to open the add-in.
 7. **Enter text** describing the math expression you want to generate (e.g., "Integrate from 0 to 1 of x^(n+1) dx"). The add-in will generate and insert a rendered image of the expression.
 
 ---
