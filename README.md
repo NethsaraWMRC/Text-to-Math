@@ -59,3 +59,4 @@ To run the project locally, follow these steps:
 
 - Make sure to **restart the server** anytime you change the `.env` file.
 - This add-in uses Google Generative AI, so ensure that your API key has the necessary permissions for generative tasks.
+- **If you find this project useful, please give it a star!**
