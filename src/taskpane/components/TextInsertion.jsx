@@ -5,7 +5,6 @@ import { useState } from "react";
 import { Button, Field, Textarea, tokens, makeStyles } from "@fluentui/react-components";
 import PropTypes from "prop-types";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import axios from "axios";
 
 const useStyles = makeStyles({
   instructions: {
@@ -28,7 +27,7 @@ const useStyles = makeStyles({
 });
 
 // Initialize Google Generative AI
-const genAI = new GoogleGenerativeAI("AIzaSyCGUGRP33olKY9nfBvtcaq9tMRmUzOLGSA"); // Replace with your actual API key
+const genAI = new GoogleGenerativeAI(process.env.REACT_APP_API_KEY); // Replace with your actual API key
 const model = genAI.getGenerativeModel({ model: "tunedModels/texttolatex-v4nyjr20sckb" });
 
 const TextInsertion = (props) => {
