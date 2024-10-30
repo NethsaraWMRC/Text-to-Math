@@ -13,7 +13,7 @@ This add-in allows you to easily generate LaTeX-style math expressions from natu
 
 ### Using the Deployed Add-In on Word 365
 
-1. **Open Word 365** and create a new document.
+1. **Open online Word 365 using browser** and create a new document.
 2. Navigate to the **Home tab** and find the **Add-ins** icon.
 3. Click the **Add-ins** icon, select **More Add-ins**, go to **My Add-ins**, and click **Upload My Add-in**.
 4. Browse and upload the **`deployed_manifest.xml`** file found in the project folder.
